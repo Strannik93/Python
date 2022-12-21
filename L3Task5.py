@@ -13,7 +13,7 @@ def input_value():
             print('Не введено ЦЕЛОЕ число больше или равно 0')
 
 def fibonacci(count_max, my_list, count = 0):
-    if count <= count_max:
+    if count <= count_max > 0:
         if count == 0:
             my_list.append(0)
             return fibonacci(count_max, my_list, count+1)
@@ -23,16 +23,7 @@ def fibonacci(count_max, my_list, count = 0):
             return fibonacci(count_max, my_list, count+1)
         else:
             my_list.append(my_list[len(my_list)-1]+my_list[len(my_list)-2])
-            if count%2 == 0:
-                temp = -1
-            else:
-                temp = 1
-            if my_list[0] < 0:
-                my_list.insert(0, temp*(my_list[1]-my_list[0]))
-            elif my_list[1] < 0:
-                my_list.insert(0, temp*(my_list[0]-my_list[1]))
-            else:
-                my_list.insert(0, temp*(my_list[0]+my_list[1]))
+            my_list.insert(0, ((abs(my_list[1])+abs(my_list[0]))*((-1)**(count-1))))
             return fibonacci(count_max, my_list, count+1)
     else:
         return
