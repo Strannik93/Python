@@ -18,5 +18,6 @@ async def mes_reply_invite_pvp(message: Message):
                     elif message.text.split()[1].lower() == 'no':
                         await message.answer(text.answer_no)
                         await bot.send_message(game.total_pvp[id_game][3], text.invite_alert(game.total_pvp[id_game][2],game.total_pvp[id_game][4],0))
+                        game.total[game.total_pvp[id_game][3]][4] = 0
                         game.total_pvp[id_game][3] = 'No'
                         game.total_pvp[id_game][4] = None
